@@ -9,7 +9,7 @@ const SecretLetterPage: React.FC<SecretLetterPageProps> = ({ onBackToStart }) =>
   const [displayedText, setDisplayedText] = useState('');
   const [showFinalMessage, setShowFinalMessage] = useState(false);
 
-  const fullText = `halooo sayangg :p
+  const fullText = `halooo halooo jerii sayanggg :p
 
 jujur aku masih suka ngga nyangka kalau ternyata hubungan kita bisa ada sampai sekarang. padahal kita udah kenal lumayan lama bahkan sempat asing, but somehow tiba-tiba kita malah jalanin hubungan ini. and honestly, i’m really happy about that.
 
