@@ -17,38 +17,38 @@ const ReasonsPage: React.FC<ReasonsPageProps> = ({ onNext }) => {
   const [reasons, setReasons] = useState<Reason[]>([
     {
       id: 1,
-      title: 'I Love You',
-      text: 'Cause you make me feel at home, no matter where i am.',
+      title: 'you’re so handsome',
+      text: 'hihii every time i look at you, aku selalu suka. ini bukan tentang wajah kamu sayang, tapi cara kamu bersikap juga bikin kamu makin attractive di mata aku.',
       isRevealed: false
     },
     {
       id: 2,
-      title: 'I Love You',
-      text: 'Cause your presence alone already calms my heart.',
+      title: 'you’re really patient',
+      text: 'you always treat me gently, bahkan pas aku lagi susah dimengerti atau banyak maunya. aku suka cara kamu tetap tenang dan nggak gampang capek ngadepin aku.',
       isRevealed: false
     },
     {
       id: 3,
-      title: 'I Love You',
-      text: 'Cause you choose me, again and again, even on difficult days.',
+      title: 'you’re mature',
+      text: ' cara kamu mikir dan ngehandle sesuatu bikin aku nyaman. being with you makes me feel safe, karena kamu selalu berusaha nyelesain semuanya dengan baik.',
       isRevealed: false
     },
     {
       id: 4,
-      title: 'I Love You',
-      text: 'Cause you see me for who i truly am, and still love me deeply.',
+      title: 'our humor matches perfectly',
+      text: 'aku suka banget karena kita bisa ketawa bareng dari hal-hal random. ngobrol sama kamu selalu terasa seru dan nggak pernah bikin bosan.',
       isRevealed: false
     },
     {
       id: 5,
-      title: 'I Love You',
-      text: 'Cause you make me laugh, feel understood, and feel cherished.',
+      title: 'you always make effort and understand me so well',
+      text: 'i love how you always try your best for me and make me feel cared for. somehow, you always understand my feelings even without long explanations.',
       isRevealed: false
     },
     {
       id: 6,
-      title: 'I Love You',
-      text: 'Cause your patience.. aku cinta kamu karena kamu sabar banget sama aku',
+      title: 'you’re always ready to stand up for me',
+      text: 'i really love how you always try to protect and stand by my side. every time aku lagi ada masalah atau sedih, kamu selalu bikin aku ngerasa nggak sendirian. knowing that you’ll always be there for me means a lot.',
       isRevealed: false
     }
   ]);
@@ -69,8 +69,13 @@ const ReasonsPage: React.FC<ReasonsPageProps> = ({ onNext }) => {
   return (
     <div className="text-center space-y-4 sm:space-y-6 px-4">
       <div className="space-y-4">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold gradient-text leading-relaxed">Reasons Why I Love You</h2>
-        <p className="text-base sm:text-lg md:text-xl text-pink-600 font-medium">Tap each heart to reveal one reason.</p>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold gradient-text leading-relaxed">
+          Reasons Why I Love You
+        </h2>
+
+        <p className="text-base sm:text-lg md:text-xl text-blue-600 font-medium">
+          Tap each heart to reveal the reasons.
+        </p>
       </div>
 
       <div className="space-y-3 max-w-md mx-auto">
@@ -84,13 +89,14 @@ const ReasonsPage: React.FC<ReasonsPageProps> = ({ onNext }) => {
             <motion.div
               className={`p-4 sm:p-5 rounded-xl sm:rounded-2xl border-2 transition-all duration-500 cursor-pointer ${
                 reason.isRevealed
-                  ? 'bg-gradient-to-r from-pink-100 to-rose-100 border-pink-300 shadow-lg card-depth-2'
-                  : 'bg-white/80 border-pink-200 hover:border-pink-400 backdrop-blur-sm shadow-md hover:shadow-xl hover:bg-white/90'
+                  ? 'bg-gradient-to-r from-blue-100 to-sky-100 border-blue-300 shadow-lg card-depth-2'
+                  : 'bg-white/80 border-blue-200 hover:border-blue-400 backdrop-blur-sm shadow-md hover:shadow-xl hover:bg-white/90'
               }`}
               whileHover={!reason.isRevealed ? { scale: 1.03, y: -2 } : {}}
               onClick={() => !reason.isRevealed && handleHeartClick(reason.id)}
             >
               <div className="flex items-center space-x-3">
+
                 <motion.div
                   className="text-xl sm:text-2xl cursor-pointer"
                   whileHover={!reason.isRevealed ? { scale: 1.2 } : {}}
@@ -101,14 +107,20 @@ const ReasonsPage: React.FC<ReasonsPageProps> = ({ onNext }) => {
                   } : {}}
                   transition={{ duration: 0.6 }}
                 >
-                  <svg className="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill={reason.isRevealed ? "#ec4899" : "none"} stroke="#ec4899" strokeWidth="2">
+                  <svg
+                    className="w-5 h-5 sm:w-6 sm:h-6"
+                    viewBox="0 0 24 24"
+                    fill={reason.isRevealed ? "#3b82f6" : "none"}
+                    stroke="#3b82f6"
+                    strokeWidth="2"
+                  >
                     <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                   </svg>
                 </motion.div>
                 
                 <div className="flex-1 text-left">
                   <motion.h3
-                    className="text-sm sm:text-base font-semibold text-pink-800"
+                    className="text-sm sm:text-base font-semibold text-blue-800"
                     animate={reason.isRevealed ? { opacity: [0, 1] } : {}}
                     transition={{ delay: 0.2 }}
                   >
@@ -122,20 +134,20 @@ const ReasonsPage: React.FC<ReasonsPageProps> = ({ onNext }) => {
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.5 }}
-                        className="text-pink-700 text-xs sm:text-sm mt-1"
+                        className="text-blue-700 text-xs sm:text-sm mt-1"
                       >
                         {reason.text}
                       </motion.p>
                     )}
                   </AnimatePresence>
                 </div>
+
               </div>
             </motion.div>
           </motion.div>
         ))}
       </div>
 
-      {/* Skip button */}
       {!allRevealed && (
         <motion.div
           initial={{ opacity: 0 }}
@@ -145,7 +157,7 @@ const ReasonsPage: React.FC<ReasonsPageProps> = ({ onNext }) => {
         >
           <motion.button
             onClick={onNext}
-            className="text-sm text-pink-500 hover:text-pink-700 underline transition-colors duration-200"
+            className="text-sm text-blue-500 hover:text-blue-700 underline transition-colors duration-200"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -167,16 +179,16 @@ const ReasonsPage: React.FC<ReasonsPageProps> = ({ onNext }) => {
               animate={{ 
                 scale: [1, 1.05, 1],
                 boxShadow: [
-                  '0 0 20px rgba(236, 72, 153, 0.3)',
-                  '0 0 40px rgba(236, 72, 153, 0.5)',
-                  '0 0 20px rgba(236, 72, 153, 0.3)'
+                  '0 0 20px rgba(59,130,246,0.3)',
+                  '0 0 40px rgba(59,130,246,0.5)',
+                  '0 0 20px rgba(59,130,246,0.3)'
                 ]
               }}
               transition={{ duration: 2, repeat: Infinity }}
             >
               <motion.button
                 onClick={onNext}
-                className="px-8 py-4 bg-gradient-to-r from-pink-400 to-pink-500 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 text-lg"
+                className="px-8 py-4 bg-gradient-to-r from-blue-400 to-indigo-500 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 text-lg"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -185,7 +197,7 @@ const ReasonsPage: React.FC<ReasonsPageProps> = ({ onNext }) => {
             </motion.div>
             
             <motion.div
-              className="mt-4 text-pink-500 text-sm"
+              className="mt-4 text-blue-500 text-sm"
               animate={{ opacity: [0.5, 1, 0.5] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
@@ -198,7 +210,10 @@ const ReasonsPage: React.FC<ReasonsPageProps> = ({ onNext }) => {
   );
 };
 
-
 export default ReasonsPage;
+
+
+
+
 
 
