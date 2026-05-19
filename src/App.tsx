@@ -14,7 +14,6 @@ function App() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [musicStarted, setMusicStarted] = useState(false);
 
-  // ✅ FIXED MUSIC SETUP (AMAN DI VERCEL & MOBILE)
   const startMusic = () => {
     if (!audioRef.current) {
       const audio = new Audio('');
@@ -22,19 +21,14 @@ function App() {
       audio.volume = 0.6;
       audio.preload = 'auto';
       audio.muted = false;
-
       audioRef.current = audio;
     }
 
     if (!musicStarted && audioRef.current) {
       audioRef.current
         .play()
-        .then(() => {
-          setMusicStarted(true);
-        })
-        .catch((err) => {
-          console.log('Audio error:', err);
-        });
+        .then(() => setMusicStarted(true))
+        .catch((err) => console.log('Audio error:', err));
     }
   };
 
@@ -58,7 +52,7 @@ function App() {
           <WelcomePage
             onNext={() => {
               soundEffects.pop();
-              startMusic(); // 🎵 MUSIC START (USER CLICK)
+              startMusic();
               setCurrentPage('game');
             }}
           />
@@ -111,8 +105,11 @@ function App() {
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      <div className="absolute inset-0 gradient-bg"></div>
 
+      {/* MAIN BACKGROUND */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-sky-50 to-indigo-100"></div>
+
+      {/* IMAGE OVERLAY */}
       <div
         className="absolute inset-0 opacity-30"
         style={{
@@ -123,14 +120,18 @@ function App() {
         }}
       />
 
-      <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-pink-50/40 to-white/30"></div>
+      {/* SOFT GLASS LIGHT */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-blue-50/40 to-white/30"></div>
 
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-pink-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+      {/* FLOATING BLOBS */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+
       <div
-        className="absolute bottom-0 right-1/4 w-96 h-96 bg-rose-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"
+        className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-300 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"
         style={{ animationDelay: '1s' }}
       ></div>
 
+      {/* PAGE CONTENT */}
       <div className="relative z-10 min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8">
         <AnimatePresence mode="wait">
           <motion.div
@@ -153,6 +154,3 @@ function App() {
 }
 
 export default App;
-
-
-
